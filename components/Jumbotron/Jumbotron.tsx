@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import Image from "next/image";
 
 interface JumbotronProps {}
 
@@ -6,10 +6,18 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
   return (
     <>
       <div className="hero bg-base-100 my-24">
-        <div className="hero-content  flex-col md:flex-row">
-          <img src="./logo.svg" className="max-w-sm rounded-lg shadow-2xl" />
+        <div className="hero-content flex-col md:flex-row">
+          <div className="rounded-lg shadow-2xl">
+            <Image
+              src="/logo.svg"
+              alt="This one time at summer camp logo"
+              height={400}
+              width={400}
+              layout="fixed"
+            />
+          </div>
           <div className="mx-12 flex flex-col gap-8 max-w-4xl">
-            <h1 className="text-5xl font-bold text-center md:text-left">
+            <h1 className="text-5xl font-bold text-center md:text-left hidden md:block">
               This one time at summer camp
             </h1>
             <p>

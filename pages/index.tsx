@@ -4,10 +4,11 @@ import Footer from "../components/Footer/Footer";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import Navbar from "../components/Navbar/Navbar";
 
+// @ts-ignore
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  const { data, error } = useSWR("/api/hello", fetcher);
+  const { data, error } = useSWR("/api/podcasts", fetcher);
 
   return (
     <>
