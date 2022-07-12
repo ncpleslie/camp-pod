@@ -1,46 +1,41 @@
-import Head from "next/head";
-import useSWR from "swr";
+import { GetStaticProps } from "next";
 import Footer from "../components/Footer/Footer";
+import PodHead from "../components/Head/Head";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import Navbar from "../components/Navbar/Navbar";
+import PodcastEpisode from "../interfaces/podcast_episode.interface";
+import { getPodcastEpisodes } from "../static_props/podcast";
+import Podcasts from "../components/Podcast/Podcasts";
 
-// @ts-ignore
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await getPodcastEpisodes();
 
-export default function Home() {
-  const { data, error } = useSWR("/api/podcasts", fetcher);
+  return {
+    props: { podcasts: data },
+    revalidate: 60,
+  };
+};
 
+interface HomeProps {
+  podcasts: PodcastEpisode[];
+}
+
+const Home: React.FC<HomeProps> = ({ podcasts }) => {
   return (
     <>
-      <Head>
-        <title>This One Time At Summer Camp | A podcast</title>
-      </Head>
+      <PodHead />
       <main>
         <Navbar title="THIS ONE TIME AT SUMMER CAMP" />
         <Jumbotron />
         <div id="episodes" className="flex flex-row justify-center my-24 mx-12">
           <div className="w-full lg:w-1/2">
-            {!data && <p>Loading</p>}
-            {data &&
-              data.data.map((episode) => {
-                return (
-                  <div key={episode.id} className="my-4">
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src={`https://open.spotify.com/embed/episode/${episode.id}?utm_source=generator`}
-                      width="100%"
-                      height="232"
-                      frameBorder="0"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      security="restricted"
-                    ></iframe>
-                  </div>
-                );
-              })}
+            <Podcasts podcasts={podcasts} />
           </div>
         </div>
         <Footer />
       </main>
     </>
   );
-}
+};
+
+export default Home;
