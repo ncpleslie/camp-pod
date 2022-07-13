@@ -6,5 +6,6 @@ declare global {
    */
   interface Window {
     onSpotifyIframeApiReady: unknown;
+    scriptLoaded: boolean;
   }
 }
