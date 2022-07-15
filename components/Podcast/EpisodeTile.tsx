@@ -22,7 +22,7 @@ const EpisodeTile: React.FC<EpisodeTileProps> = ({
         <div>
           <h3 className="font-bold text-lg">{episode.name}</h3>
           <div
-            className="overflow-y-auto h-24"
+            className="overflow-y-auto h-24 hidden sm:block"
             dangerouslySetInnerHTML={{ __html: episode.html_description }}
           ></div>
         </div>
