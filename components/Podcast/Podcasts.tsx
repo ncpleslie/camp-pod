@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 import useSpotify from "../../hooks/use_spotify.hook";
 import PodcastEpisode from "../../interfaces/podcast_episode.interface";
 import EpisodeTile from "./EpisodeTile";

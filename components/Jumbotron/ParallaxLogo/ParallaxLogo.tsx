@@ -1,4 +1,3 @@
-// import Logo from "../../public/logo.svg";
 import * as THREE from "three";
 import React, { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -18,6 +17,7 @@ import sunriseUrl from "./resources/sunrise.png";
 import titleUrl from "./resources/title.png";
 import treeUrl from "./resources/trees.png";
 import "./materials/layerMaterial";
+import { DepthOfFieldEffect } from "postprocessing";
 
 const Scene = ({ dof }) => {
   const bgScale = useAspect(2679, 2679, 10);
@@ -33,8 +33,8 @@ const Scene = ({ dof }) => {
     lakeUrl.src,
     titleUrl.src,
   ]);
-  const subject = useRef();
-  const group = useRef();
+  const subject = useRef<any>();
+  const group = useRef<any>();
   const layersRef = useRef([]);
   const [movement] = useState(() => new THREE.Vector3());
   const [temp] = useState(() => new THREE.Vector3());
@@ -46,6 +46,7 @@ const Scene = ({ dof }) => {
     {
       texture: textures[1],
       z: 20,
+      ref: subject,
       scale: scale,
     },
     // Mountains
@@ -55,7 +56,6 @@ const Scene = ({ dof }) => {
       texture: textures[3],
       z: 40,
       wiggle: 0.6,
-      ref: subject,
       scale: scale,
     },
     // Grass
@@ -119,35 +119,31 @@ const Scene = ({ dof }) => {
 
   return (
     <group ref={group}>
-      {layers.map(
-        (
-          { scale, texture, ref, factor = 0, scaleFactor = 1, wiggle = 0, z },
-          i
-        ) => (
-          <Plane
-            scale={scale}
-            args={[1, 1, wiggle ? 10 : 1, wiggle ? 10 : 1]}
-            position-z={z}
-            key={i}
-            ref={ref}
-          >
-            <layerMaterial
-              movement={movement}
-              textr={texture}
-              factor={factor}
-              ref={(el) => (layersRef.current[i] = el)}
-              wiggle={wiggle}
-              scale={scaleFactor}
-            />
-          </Plane>
-        )
-      )}
+      {layers.map(({ scale, texture, ref, wiggle = 0, z }, i) => (
+        <Plane
+          scale={scale}
+          args={[1, 1, wiggle ? 10 : 1, wiggle ? 10 : 1]}
+          position-z={z}
+          key={i}
+          ref={ref}
+        >
+          <layerMaterial
+            movement={movement}
+            textr={texture}
+            ref={(el) => (layersRef.current[i] = el)}
+            wiggle={wiggle}
+          />
+        </Plane>
+      ))}
     </group>
   );
 };
 
-const Effects = React.forwardRef((props, ref) => {
-  const { viewport: { width, height } } = useThree() // prettier-ignore
+const Effects = React.forwardRef<DepthOfFieldEffect>((props, ref) => {
+  const {
+    viewport: { width, height },
+  } = useThree();
+
   return (
     <EffectComposer multisampling={0}>
       <DepthOfField
@@ -163,7 +159,7 @@ const Effects = React.forwardRef((props, ref) => {
 });
 
 const ParallaxLogo: React.FC = () => {
-  const dof = useRef();
+  const dof = useRef<DepthOfFieldEffect>();
   return (
     <div className="h-screen">
       <Canvas
@@ -180,5 +176,7 @@ const ParallaxLogo: React.FC = () => {
     </div>
   );
 };
+
+ParallaxLogo.displayName = "ParallaxLogo";
 
 export default ParallaxLogo;
