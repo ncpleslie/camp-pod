@@ -14,14 +14,15 @@ import lakeUrl from "./resources/lake.png";
 import mountainUrl from "./resources/mountains.png";
 import shoreUrl from "./resources/shore.png";
 import sunriseUrl from "./resources/sunrise.png";
-import titleUrl from "./resources/title.png";
+import titleUrl from "./resources/title_middle.png";
 import treeUrl from "./resources/trees.png";
 import "./materials/layerMaterial";
 import { DepthOfFieldEffect } from "postprocessing";
 
 const Scene = ({ dof }) => {
-  const bgScale = useAspect(2679, 2679, 10);
+  const bgScale = useAspect(2667, 2679, 10);
   const scale = useAspect(2679, 2679, 0.5);
+  const titleScale = useAspect(2667, 678, 0.15);
   const textures = useTexture([
     bgUrl.src,
     sunriseUrl.src,
@@ -88,9 +89,9 @@ const Scene = ({ dof }) => {
     // Title
     {
       texture: textures[8],
-      z: 70,
+      z: 81,
       // wiggle: 1,
-      scale: scale,
+      scale: titleScale,
     },
   ];
 
@@ -148,8 +149,8 @@ const Effects = React.forwardRef<DepthOfFieldEffect>((props, ref) => {
     <EffectComposer multisampling={0}>
       <DepthOfField
         ref={ref}
-        bokehScale={0.5}
-        focalLength={0.25}
+        bokehScale={0.1}
+        focalLength={0.1}
         width={(width * 5) / 2}
         height={(height * 5) / 2}
       />
@@ -161,7 +162,7 @@ const Effects = React.forwardRef<DepthOfFieldEffect>((props, ref) => {
 const ParallaxLogo: React.FC = () => {
   const dof = useRef<DepthOfFieldEffect>();
   return (
-    <div className="h-screen">
+    <div className="h-[80vh]">
       <Canvas
         linear
         orthographic

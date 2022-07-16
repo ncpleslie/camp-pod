@@ -8,7 +8,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ title }) => {
   return (
     <div className="navbar bg-neutral flex flex-row justify-end">
-      <div className="absolute top-4 left-5 z-50 max-w-[300px]">
+      <div className="absolute top-4 left-5 z-50 max-w-[300px] hidden md:block">
         <LogoTitle />
       </div>
       <ListenNowBtn />

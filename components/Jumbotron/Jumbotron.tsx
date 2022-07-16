@@ -7,7 +7,7 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
   return (
     <div>
       <ParallaxLogo />
-      <div className="hero my-24">
+      <div className="hero absolute top-2/3">
         <div className="hero-content flex-col md:flex-row">
           <div className="rounded-xl shadow-2xl"></div>
           <div className="mx-12 flex flex-col gap-8 max-w-4xl">
