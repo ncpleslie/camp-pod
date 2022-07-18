@@ -107,6 +107,7 @@ const Scene = React.forwardRef<HTMLElement>((props, ref) => {
       setYValue(0);
     });
 
+    // @ts-ignore - It is valid
     resizeObserver.observe(ref.current);
 
     return () => {
