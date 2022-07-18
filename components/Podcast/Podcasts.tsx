@@ -16,25 +16,22 @@ const Podcasts: React.FC<PodcastProps> = ({ podcasts }) => {
   }, []);
 
   return (
-    <>
-      <div className="flex flex-col gap-4">
-        {podcasts.map((episode) => (
-          <div key={episode.id}>
-            {selectedEpisode && episode.id === selectedEpisode.id ? (
-              <PlayerEmbed episodeId={episode.id} />
-            ) : (
-              <EpisodeTile
-                episode={episode}
-                isSelected={
-                  selectedEpisode && episode.id === selectedEpisode.id
-                }
-                onEpisodeSelected={setNewEpisode}
-              />
-            )}
-          </div>
-        ))}
-      </div>
-    </>
+    <div className="flex flex-col gap-4 bg-base-100 p-8 rounded-xl shadow-xl">
+      <h3 className="text-center font-bold text-2xl">Recent Episodes</h3>
+      {podcasts.map((episode) => (
+        <div key={episode.id}>
+          {selectedEpisode && episode.id === selectedEpisode.id ? (
+            <PlayerEmbed episodeId={episode.id} />
+          ) : (
+            <EpisodeTile
+              episode={episode}
+              isSelected={selectedEpisode && episode.id === selectedEpisode.id}
+              onEpisodeSelected={setNewEpisode}
+            />
+          )}
+        </div>
+      ))}
+    </div>
   );
 };
 

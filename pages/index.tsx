@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar/Navbar";
 import PodcastEpisode from "../interfaces/podcast_episode.interface";
 import { getPodcastEpisodes } from "../static_props/podcast";
 import Podcasts from "../components/Podcast/Podcasts";
+import Description from "../components/Description/Description";
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getPodcastEpisodes();
@@ -25,9 +26,13 @@ const Home: React.FC<HomeProps> = ({ podcasts }) => {
     <>
       <PodHead />
       <main>
-        <Navbar title="THIS ONE TIME AT SUMMER CAMP" />
+        <Navbar />
         <Jumbotron />
-        <div id="episodes" className="flex flex-row justify-center my-24 mx-12">
+        <Description />
+        <div
+          id="episodes"
+          className="flex flex-row justify-center py-12 px-4 bg-neutral"
+        >
           <div className="w-full lg:w-1/2">
             <Podcasts podcasts={podcasts} />
           </div>

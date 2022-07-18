@@ -12,7 +12,7 @@ const PlayerEmbed: React.FC<PlayerEmbedProps> = ({ episodeId }) => {
   };
 
   return (
-    <div className="shadow-lg h-[152px] my-4 rounded-xl relative bg-[#657B7F]">
+    <div className="shadow-lg h-[152px] my-4 rounded-xl relative bg-neutral">
       {!loaded && (
         <div className="absolute top-1/4 left-[47%] translate-y-1/4 ">
           <LoadingIndicator />
@@ -20,7 +20,7 @@ const PlayerEmbed: React.FC<PlayerEmbedProps> = ({ episodeId }) => {
       )}
       <iframe
         style={{ borderRadius: "12px" }}
-        src={`https://open.spotify.com/embed/episode/${episodeId}?utm_source=generator`}
+        src={`https://open.spotify.com/embed/episode/${episodeId}?utm_source=generator&theme=0`}
         width="100%"
         height="152"
         frameBorder="0"

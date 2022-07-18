@@ -1,27 +1,36 @@
 import ListenNowBtn from "../UI/ListenNowBtn";
 import ParallaxLogo from "./ParallaxLogo/ParallaxLogo";
+import style from "./jumbotron.module.css";
 
 interface JumbotronProps {}
 
 const Jumbotron: React.FC<JumbotronProps> = () => {
   return (
-    <div>
-      <ParallaxLogo />
-      <div className="hero absolute top-2/3">
-        <div className="hero-content flex-col md:flex-row">
-          <div className="rounded-xl shadow-2xl"></div>
-          <div className="mx-12 flex flex-col gap-8 max-w-4xl">
-            <p className="text-center">
-              Pete and Nick use their many years of experience at camp to
-              discuss the highs and lows of working at camps in the US and other
-              countries. Everybody we meet who has been to a camp have some
-              amazing stories to tell.
-            </p>
+    <>
+      <div className="relative pb-24">
+        <ParallaxLogo />
+
+        <div className="absolute z-10 w-full">
+          <div className="w-full flex flex-row justify-center items-center">
             <ListenNowBtn />
           </div>
         </div>
+
+        <div className={style["custom-shape-divider-bottom"]}>
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              className="shape-fill"
+            ></path>
+          </svg>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
