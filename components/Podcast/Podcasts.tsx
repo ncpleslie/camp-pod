@@ -1,8 +1,12 @@
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import useSpotify from "../../hooks/use_spotify.hook";
 import PodcastEpisode from "../../interfaces/podcast_episode.interface";
 import EpisodeTile from "./EpisodeTile";
-import PlayerEmbed from "./PlayerEmbed";
+
+const PlayerEmbed = dynamic(() => import("./PlayerEmbed"), {
+  ssr: false,
+});
 
 interface PodcastProps {
   podcasts: PodcastEpisode[];
