@@ -5,7 +5,7 @@ import SpotifyPodcastsTile from "../UI/podcast_tiles/SpotifyPodcastsTile";
 const Description: React.FC = () => {
   return (
     <div className="py-12 grid place-content-center bg-neutral">
-      <div className="text-center text-base-content max-w-prose mx-8 bg-base-100 p-8 rounded-xl shadow-xl">
+      <div className="text-center text-base-content max-w-prose mx-4 bg-base-100 p-8 rounded-xl shadow-xl">
         <h1 className="text-center text-3xl mb-4 text-bold">
           The One Time At Summer Camp
         </h1>

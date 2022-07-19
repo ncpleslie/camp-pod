@@ -15,8 +15,12 @@ const EpisodeTile: React.FC<EpisodeTileProps> = ({
   return (
     <div className="h-[152px] rounded-xl shadow-lg p-2 md:p-4 bg-neutral flex flex-col md:flex-row justify-between flex-nowrap gap-0 md:gap-4">
       <img
-        className="self-center rounded-lg h-full aspect-square"
+        className="hidden md:block self-center rounded-lg h-full aspect-square"
         src={episode.images[1].url}
+      />
+      <img
+        className="md:hidden self-center rounded-lg h-full aspect-square"
+        src={episode.images[2].url}
       />
       <div className="self-start justify-self-start truncate h-full text-neutral-content w-full">
         <h3

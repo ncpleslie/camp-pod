@@ -14,7 +14,7 @@ const PlayerEmbed: React.FC<PlayerEmbedProps> = ({ episodeId }) => {
   return (
     <div className="shadow-lg h-[152px] my-4 rounded-xl relative bg-neutral">
       {!loaded && (
-        <div className="absolute top-1/4 left-[47%] translate-y-1/4 ">
+        <div className="absolute grid place-content-center w-full h-full">
           <LoadingIndicator />
         </div>
       )}
