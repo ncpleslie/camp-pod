@@ -9,7 +9,7 @@ const ApplePodcastsTile = () => {
       width="164.8566px"
       height="40px"
       viewBox="0 0 164.8566 40"
-      enable-background="new 0 0 164.8566 40"
+      enableBackground="new 0 0 164.8566 40"
       xmlSpace="preserve"
     >
       <g id="US">
@@ -60,8 +60,8 @@ c-0.2929,0.0068-0.5996,0.0107-0.8974,0.0107l-1.084,0.002L8.4448,39.125z"
           </linearGradient>
           <path
             id="XMLID_662_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill="url(#XMLID_2_)"
             d="M32.1821,29.2281
    c-0.2446,0.6213-0.809,1.4961-1.6094,2.1123c-0.4621,0.3559-1.0138,0.6961-1.7716,0.9206
@@ -75,8 +75,8 @@ c-0.2929,0.0068-0.5996,0.0107-0.8974,0.0107l-1.084,0.002L8.4448,39.125z"
           />
           <path
             id="XMLID_660_"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             fill="none"
             d="M32.1821,29.2281
    c-0.2446,0.6213-0.809,1.4961-1.6094,2.1123c-0.4621,0.3559-1.0138,0.6961-1.7716,0.9206

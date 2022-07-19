@@ -13,7 +13,7 @@ const Footer: React.FC<{}> = () => {
           href="https://www.instagram.com/thisonetimeatsummercamppod"
           title="See This One Time At Summer on Instagram"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
         >
           <InstagramIcon />
         </a>
@@ -21,7 +21,7 @@ const Footer: React.FC<{}> = () => {
           href="https://podcasts.apple.com/us/podcast/this-one-time-at-summer-camp/"
           title="Listen to This One Time At Summer Camp on Apple Podcasts"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
         >
           <ApplePodcastsIcon />
         </a>
@@ -29,7 +29,7 @@ const Footer: React.FC<{}> = () => {
           href="https://open.spotify.com/show/5sTfLG6GhzJ1SYDY3kWLMR"
           title="Listen to This One Time At Summer Camp on Spotify"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
         >
           <SpotifyIcon />
         </a>

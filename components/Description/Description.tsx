@@ -19,7 +19,7 @@ const Description: React.FC = () => {
           <a
             className="transition ease-in-out hover:scale-110 delay-150 duration-300 motion-reduce:transition-none motion-reduce:hover:transform-none"
             target="_blank"
-            rel="noopener"
+            rel="noreferrer"
             href="https://open.spotify.com/show/5sTfLG6GhzJ1SYDY3kWLMR"
           >
             <SpotifyPodcastsTile />
@@ -27,7 +27,7 @@ const Description: React.FC = () => {
           <a
             className="transition ease-in-out hover:scale-110 delay-150 duration-300 motion-reduce:transition-none motion-reduce:hover:transform-none"
             target="_blank"
-            rel="noopener"
+            rel="noreferrer"
             href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xOTgxNTE5LnJzcw=="
           >
             <GooglePodcastsTile />
@@ -35,7 +35,7 @@ const Description: React.FC = () => {
           <a
             className="transition ease-in-out hover:scale-110 delay-150 duration-300 motion-reduce:transition-none motion-reduce:hover:transform-none"
             target="_blank"
-            rel="noopener"
+            rel="noreferrer"
             href="https://podcasts.apple.com/podcast/id1621708943"
           >
             <ApplePodcastsTile />
