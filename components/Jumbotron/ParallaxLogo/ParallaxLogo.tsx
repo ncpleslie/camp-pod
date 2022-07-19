@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Loader, Plane, useAspect, useTexture } from "@react-three/drei";
+import { Plane, useAspect, useTexture } from "@react-three/drei";
 import { EffectComposer } from "@react-three/postprocessing";
 import bgUrl from "./resources/bg.png";
 import cloudsUrl from "./resources/clouds.png";
@@ -163,7 +163,7 @@ const Scene = React.forwardRef<HTMLElement>((props, ref) => {
 const ParallaxLogo: React.FC = () => {
   const canvas = useRef();
   return (
-    <div className="h-[50vh] md:h-[80vh]" ref={canvas}>
+    <div className="h-full w-full" ref={canvas}>
       <Canvas
         linear
         orthographic

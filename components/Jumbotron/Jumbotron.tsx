@@ -1,6 +1,10 @@
 import ListenNowBtn from "../UI/ListenNowBtn";
-import ParallaxLogo from "./ParallaxLogo/ParallaxLogo";
 import style from "./jumbotron.module.css";
+import dynamic from "next/dynamic";
+
+const ParallaxLogo = dynamic(() => import("./ParallaxLogo/ParallaxLogo"), {
+  ssr: false,
+});
 
 interface JumbotronProps {}
 
@@ -8,7 +12,9 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
   return (
     <>
       <div className="relative pb-24">
-        <ParallaxLogo />
+        <div className="h-[50vh] md:h-[80vh]">
+          <ParallaxLogo />
+        </div>
 
         <div className="absolute z-10 w-full">
           <div className="w-full flex flex-row justify-center items-center">
