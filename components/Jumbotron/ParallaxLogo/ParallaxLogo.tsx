@@ -170,6 +170,7 @@ const ParallaxLogo: React.FC = () => {
         gl={{ antialias: false, stencil: false, alpha: false, depth: false }}
         camera={{ zoom: 5, position: [0, 0, 200], far: 300, near: 0 }}
         className="bg-base-100"
+        dpr={[1, 2]}
         onCreated={(state) => {
           state.scene.background = new THREE.Color("#CFEAED");
         }}
