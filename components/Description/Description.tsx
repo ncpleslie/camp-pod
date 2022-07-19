@@ -15,7 +15,7 @@ const Description: React.FC = () => {
           Everybody we meet who has been to a camp have some amazing stories to
           tell.
         </p>
-        <div className="flex flex-row gap-2 mt-4">
+        <div className="flex flex-row flex-wrap gap-2 mt-4 justify-center">
           <a
             className="transition ease-in-out hover:scale-110 delay-150 duration-300 motion-reduce:transition-none motion-reduce:hover:transform-none"
             target="_blank"
