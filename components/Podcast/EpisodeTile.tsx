@@ -17,10 +17,12 @@ const EpisodeTile: React.FC<EpisodeTileProps> = ({
       <img
         className="hidden md:block self-center rounded-lg h-full aspect-square"
         src={episode.images[1].url}
+        alt={episode.name}
       />
       <img
         className="md:hidden self-center rounded-lg h-full aspect-square"
         src={episode.images[2].url}
+        alt={episode.name}
       />
       <div className="self-start justify-self-start truncate h-full text-neutral-content w-full">
         <h3
